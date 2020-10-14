@@ -1,0 +1,11 @@
+version: '3'
+services:
+  flyway:
+    image: flyway/flyway
+    command: -url=jdbc:sqlserver://<<servername>>:1433;databaseName=<<database>>  -user=<<dbuser>> -password=<<password>> -connectRetries=60 migrate
+    volumes:
+      - .:/flyway/sql
+     
+
+    network_mode: "host"
+   
